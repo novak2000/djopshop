@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+{% endblock %}
+
+{% block body %}
+<main class="mt-0 pt-1 mx-auto">
+        <div class="container dark-grey-text mt-2 mx-auto">
+    
+          <!--Grid row-->
+          <div class="row wow fadeIn mx-auto">
+            <div class="col-md-1 mb-4">
+    
+            </div>
+            <!--Grid column-->
+            <div class="col-md-7 mb-4">
+    
+              <img src={{url_for('static', filename= 'images/product/'+ product.image)}} class="img-fluid" alt="" style="min-width: 500px;">
+    
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-md-4 mb-4 mt-5">
+    
+              <!--Content-->
+              <div class="p-4">
+                <div class="mb-3">
+                  
+                  <h3>{{product.name}}</h3>
+                  
+                </div>
+                <div class="mb-3">
+                  {% for category in productCategories %}
+                    <a href="">
+                      <span class="badge purple mr-1">{{category}}</span>
+                    </a>
+                    >
+                  {% endfor %}
+                  <a href="">
+                    <span class="badge purple mr-1">{{product.category_all.name}}</span>
+                  </a>
+                </div>
+    
+                <p class="lead">
+                  <span><b>{{product.price}} RSD </b></span>
+                </p>
+    
+                <p class="lead font-weight-bold">Description</p>
+    
+                <p>{{product.description}}</p>
+    
+                <form class="d-flex justify-content-left">
+                  <!-- Default input -->
+                  <input type="number" value="1" aria-label="Search" class="form-control mr-3" style="width: 100px">
+                  <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                    <i class="fas fa-shopping-cart ml-1"></i>
+                  </button>
+    
+                </form>
+    
+              </div>
+              <!--Content-->
+    
+            </div>
+            <!--Grid column-->
+    
+          </div>
+          <!--Grid row-->
+    
+          <hr>
+          <!--
+          
+          <div class="row d-flex justify-content-center wow fadeIn">
+    
+            
+            <div class="col-md-6 text-center">
+    
+              <h4 class="my-4 h4">Additional information</h4>
+    
+              <p>{{product.description}}</p>
+    
+            </div>
+            
+    
+          </div>
+          
+    
+          
+          <div class="row wow fadeIn">
+    
+            
+            <div class="col-lg-4 col-md-12 mb-4">
+    
+              <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+    
+            </div>
+            
+    
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+    
+              <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+    
+            </div>
+            
+    
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+    
+              <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+    
+            </div>
+            
+    
+          </div>
+          
+    
+        </div> -->
+      </main>
+      <!--Main layout-->
+{% endblock %}
+

@@ -1,0 +1,45 @@
+.sticky{
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 10px;
+}
+
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    grid-gap:3px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(28, 20, 70, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .grid-container {
+    
+    grid-template-columns: 1fr 1fr;
+    
+  }
+}
+
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

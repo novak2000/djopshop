@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    
+{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row my-2">
+            <div class="col-lg-8 order-lg-2">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                    </li>
+                </ul>
+                <div class="tab-content py-4">
+                    <div class="tab-pane active" id="profile">
+                        <h5 class="mb-3">User Profile</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Username</h6>
+                                        </div>
+                                        <div class="col">
+                                            {{current_user.username}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Email</h6>
+                                        </div>
+                                        <div class="col">
+                                            {{current_user.email}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Address</h6>
+                                        </div>
+                                        <div class="col">
+                                            {{current_user.address}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- 
+                            <div class="col-md-6">
+                                <h6>Recent badges</h6>
+                                <a href="#" class="badge badge-dark badge-pill">html5</a>
+                                <a href="#" class="badge badge-dark badge-pill">react</a>
+                                <a href="#" class="badge badge-dark badge-pill">codeply</a>
+                                <a href="#" class="badge badge-dark badge-pill">angularjs</a>
+                                <a href="#" class="badge badge-dark badge-pill">css3</a>
+                                <a href="#" class="badge badge-dark badge-pill">jquery</a>
+                                <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
+                                <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
+                                <hr>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                                <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                                <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                            </div>
+                            <div class="col-md-12">
+                                <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                                <table class="table table-sm table-hover table-striped">
+                                    <tbody>                                    
+                                        <tr>
+                                            <td>
+                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                        </div> 
+                    </div> 
+                    <div class="tab-pane" id="messages">
+                        <div class="alert alert-info alert-dismissable">
+                            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                        </div>
+                        <table class="table table-hover table-striped">
+                            <tbody>                                    
+                                <tr>
+                                    <td>
+                                       <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                    </td>
+                                </tr>
+                            </tbody> 
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="edit">
+                        <form action="" method="POST" class=''>
+                            {{ form.hidden_tag() }}
+                            <fieldset class="form-group card-body">
+                                <legend>Update your profile down here</legend>
+                                <div class="form-group">
+                                    {{ form.username.label(class="form-control-label") }}
+                                    {% if form.username.errors %}
+                                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.username.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.username(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.email.label(class="form-control-label") }}
+                                    {% if form.email.errors %}
+                                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.email.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.email(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.firm_name.label(class="form-control-label") }}
+                                    {% if form.firm_name.errors %}
+                                        {{ form.firm_name(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.firm_name.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.firm_name(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>  
+                                <div class="form-group">
+                                    {{ form.address.label(class="form-control-label") }}
+                                    {% if form.address.errors %}
+                                        {{ form.address(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.address.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.address(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>   
+                            </fieldset>
+                            <div class="form-group card-body pt-0 mt-0">
+                                {{form.submit(class="btn btn-dark btn-block")}}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-1 text-center">
+                <img src= {{ url_for('static' , filename='images/profile/' + current_user.image) }} class="pb-5 mx-auto img-fluid img-circle d-block" alt="avatar" style="max-height: 250px;max-width: 250px;">
+                <div class="">
+                    <h6 class="mt-0">Upload a different photo</h6>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {{ formPhoto.hidden_tag() }}
+                        <fieldset class="form-group card-body py-0">
+                            <div class="form-group pl-5 mx-auto">
+                                {{ formPhoto.photo(class="form-control-file") }}
+                                {% if formPhoto.photo.errors %}
+                                    {% for error in formPhoto.photo.errors %}
+                                        <span class="text-danger">{{ error }}</span></br>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                        <div class="btn pt-0 mt-0">
+                            {{formPhoto.submit(class="btn btn-dark btn-block")}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

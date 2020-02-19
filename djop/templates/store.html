@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <main role="main" class="container">
+        <div class="row pt-4 pb-2">
+            <div class="col-md-3 mr-auto">
+                <div class="content-section">
+                    <p class='text-muted'>Ovde ce biti sortiranje proizvoda
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">Latest Posts</li>
+                        <li class="list-group-item list-group-item-light">Announcements</li>
+                        <li class="list-group-item list-group-item-light">Calendars</li>
+                        <li class="list-group-item list-group-item-light">etc</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8 grid-container">
+                {% for x,article in articles %}
+                <div class="card grid-item">
+
+                    <!--Card image-->
+                    <div class="view overlay">
+                    <a href="{{url_for('product', product_id=article.id)}}">
+                    <img src={{url_for('static', filename= 'images/product/'+ article.image)}} alt="{{ article.name }}" class="card-img-top"
+                        alt="">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                    </div>
+                    <!--Card image-->
+    
+                    <!--Card content-->
+                    <div class="card-body text-center">
+                    <!--Category & Title-->
+                    <a href="" class="grey-text">
+                        <h5><a href="{{url_for('product', product_id=article.id)}}">{{article.name}}</a></h5>
+                    </a>
+                    <h5>
+                        <strong>
+                        <a href="" class="dark-grey-text">{{article.category_all.name}}
+                        </a>
+                        </strong>
+                    </h5>
+    
+                    <h4 class="font-weight-bold blue-text">
+                        <strong>{{article.price}} RSD</strong>
+                    </h4>
+    
+                    </div>
+                    <!--Card content-->
+    
+                </div>
+                
+                <!--Card-->
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row mx-auto justify-content-center align-items-center pb-2">
+            {% if page >1 %}
+                <a href="{{url_for('store', page=page-1)}}" class="btn btn-outline-info mr-1">previous</a>
+            {% endif %}
+            {% for page_num in products.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=3) %}
+                    {% if page_num %}
+                            {% if page_num == products.page %}
+                                <a href="{{url_for('store', page=page_num)}}" class="btn btn-info">{{ page_num }}</a>
+                            {% else %}
+                                <a href="{{url_for('store', page=page_num)}}" class="btn btn-outline-info">{{ page_num }}</a>
+                            {% endif %}
+                    {% else %}
+                            ...
+                    {% endif %}     
+            {% endfor %}
+            {% if  total_pages != page %}
+                <a href="{{url_for('store', page=page+1)}}" class="btn btn-outline-info ml-1">next</a>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+
